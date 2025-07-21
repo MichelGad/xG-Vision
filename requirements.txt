@@ -1,0 +1,10 @@
+torch
+supervision
+ultralytics
+opencv-python
+pillow
+scikit-learn
+scikit-image
+streamlit
+streamlit_image_coordinates
+gdown
