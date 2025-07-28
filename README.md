@@ -93,7 +93,7 @@ pip install -r requirements.txt
 
 ### 4. Download Pre-trained Models
 
-To use the application, you must first train the models yourself by running the provided Jupyter Notebooks.
+To use the application, you must first download the trained the models yourself by running the next code.
 
 
 #### a. Make the script executable (On macOS/Linux):
