@@ -1,24 +1,28 @@
 #!/bin/bash
 
-# This script downloads the required pre-trained models from Google Drive.
+# Downloads the required models from HuggingFace (martinjolif).
+# YOLO detectors + MobileNetV3 jersey classifier used for team assignment.
 
-# Create the 'models' directory if it doesn't already exist.
-echo "Creating 'models' directory..."
 mkdir -p models
 
-echo "Downloading models..."
+echo "Downloading models from HuggingFace..."
 
-# Download Ball Detection Model
-echo "--> Downloading football-ball-detection.pt..."
-gdown -O "models/football-ball-detection.pt" "https://drive.google.com/uc?id=1isw4wx-MK9h9LMr36VvIWlJD6ppUvw7V"
+echo "--> yolo-football-player-detection.pt..."
+curl -sL --fail -o "models/football-player-detection.pt" \
+  "https://huggingface.co/martinjolif/yolo-football-player-detection/resolve/main/yolo-football-player-detection.pt"
 
-# Download Player Detection Model
-echo "--> Downloading football-player-detection.pt..."
-gdown -O "models/football-player-detection.pt" "https://drive.google.com/uc?id=17PXFNlx-jI7VjVo_vQnB1sONjRyvoB-q"
+echo "--> yolo-football-ball-detection.pt..."
+curl -sL --fail -o "models/football-ball-detection.pt" \
+  "https://huggingface.co/martinjolif/yolo-football-ball-detection/resolve/main/yolo-football-ball-detection.pt"
 
-# Download Pitch Keypoint Detection Model
-echo "--> Downloading football-pitch-detection.pt..."
-gdown -O "models/football-pitch-detection.pt" "https://drive.google.com/uc?id=1Ma5Kt86tgpdjCTKfum79YMgNnSjcoOyf"
+echo "--> yolo-football-pitch-detection.pt..."
+curl -sL --fail -o "models/football-pitch-detection.pt" \
+  "https://huggingface.co/martinjolif/yolo-football-pitch-detection/resolve/main/yolo-football-pitch-detection.pt"
+
+echo "--> mobilenetv3-football-jersey-classification.pth..."
+curl -sL --fail -o "models/football-jersey-classification.pth" \
+  "https://huggingface.co/martinjolif/mobilenetv3-football-jersey-classification/resolve/main/mobilenetv3-football-jersey-classification.pth"
 
 echo ""
-echo "✅ All models downloaded successfully into the 'models' folder!"
+echo "Done. Expected files in models/:"
+ls -la models/*.pt models/*.pth
