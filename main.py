@@ -76,7 +76,7 @@ def main():
             st.subheader("Detection Hyperparameters")
             detection_hyper_params = {
                 "player_conf": st.slider('Player Confidence', 0.0, 1.0, 0.6, key='live_player_conf'),
-                "keypoint_conf": st.slider('Keypoint Confidence', 0.0, 1.0, 0.7, key='live_kp_conf'),
+                "keypoint_conf": st.slider('Keypoint Confidence', 0.0, 1.0, 0.5, key='live_kp_conf'),
             }
             st.subheader("Ball Tracking Hyperparameters")
             ball_track_hyperparams = {
